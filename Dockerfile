@@ -30,6 +30,7 @@ ENV NODE_ENV=production
 USER node
 WORKDIR /usr/local/wishing-well
 
+COPY --from=builder /usr/src/wishing-well/sentry.properties /usr/src/wishing-well/package.json ./
 COPY --from=dependencies /usr/src/wishing-well/node_modules node_modules
 COPY --from=builder /usr/src/wishing-well/dist dist
 CMD node -r source-map-support/register dist/index.js

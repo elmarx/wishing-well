@@ -1,6 +1,8 @@
 import express, { Application, json, urlencoded } from "express";
 import cors from "cors";
 import { wire } from "./init/wire";
+import { sentryInit } from "./sentry";
+import * as Sentry from "@sentry/node";
 import { initConfig } from "./init/config";
 import logger from "./logging";
 import { unwrap } from "./utils/unwrap";
@@ -11,7 +13,10 @@ async function main(): Promise<void> {
 
   // if the config is invalid just throw, i.e. exit at startup
   const config = unwrap(initConfig());
+  sentryInit(config.sentry);
   const { loggingMiddleware, errorMiddleware, helloHandler } = wire(config);
+
+  app.use(Sentry.Handlers.requestHandler());
 
   app.use(initBailoutHandler());
   app.use(loggingMiddleware);
@@ -20,6 +25,8 @@ async function main(): Promise<void> {
   app.use(urlencoded({ extended: true }));
   app.use("/hello-world", helloHandler);
   app.use("/", (_req, res) => res.redirect("/hello-world", 307));
+
+  app.use(Sentry.Handlers.errorHandler());
 
   app.use(errorMiddleware);
   app.listen(config.port, (): void => {

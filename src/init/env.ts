@@ -7,6 +7,7 @@ export const Env = t.exact(
   t.type({
     SPACE: withFallback(Space, "dev"),
     PORT: withFallback(t.number, 8080),
+    SENTRY_DSN: t.union([t.string, t.undefined]),
     DEFAULT_NAME: withFallback(t.string, "World"),
   }),
 );
