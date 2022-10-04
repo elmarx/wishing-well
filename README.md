@@ -26,7 +26,7 @@ Also, it encourages a functional style outside of handlers (i.e. were feasible) 
       
 ## Required software
 
-- [direnv](https://direnv.net/) to set environment-variables for development (especially `PATH` to execute binaries from install npm packages)
+- [direnv](https://direnv.net/) to set environment-variables for development (especially `PATH` to execute binaries from installed npm packages)
   - [Direnv integration for IntelliJ](https://plugins.jetbrains.com/plugin/15285-direnv-integration) to use environment set via *direnv* for IntelliJ Run
 - NodeJS > 18 for [Error-cause-property](https://node.green/#ES2022-features-Error-cause-property)
 - [just](https://just.systems/man/en/) to execute commands
