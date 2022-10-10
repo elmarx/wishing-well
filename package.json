@@ -6,7 +6,10 @@
   "private": true,
   "scripts": {
     "check-updates": "npx --yes npm-check-updates",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "tsc": "tsc",
+    "prettier": "prettier -c src",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.27.2",

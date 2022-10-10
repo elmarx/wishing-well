@@ -3,6 +3,14 @@ git_revision := `git rev-parse --short HEAD`
 image_tag := git_revision
 image_name := "docker-repository" / service_name
 
+# run tasks for continuos integration
+ci:
+    npm ci
+    npm run tsc
+    npm run prettier
+    # currently no tests…
+    npm run test
+
 # build image (with buildkit)
 build:
     buildctl build \
