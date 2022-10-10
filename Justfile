@@ -3,8 +3,19 @@ git_revision := `git rev-parse --short HEAD`
 image_tag := git_revision
 image_name := "docker-repository" / service_name
 
-# run docker build
+# build image (with buildkit)
 build:
+    buildctl build \
+      --frontend dockerfile.v0 \
+      --output type=image,\"name={{image_name}},{{image_name}}:{{ image_tag }}\",push=true \
+      --export-cache type=registry,ref={{image_name}}:buildcache \
+      --import-cache type=registry,ref={{image_name}}:buildcache \
+      --opt label:git-revision={{git_revision}} \
+      --local context=. \
+      --local dockerfile=.
+
+# run docker build
+build_docker:
     docker buildx build \
         --push \
         --pull \
