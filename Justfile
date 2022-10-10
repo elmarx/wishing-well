@@ -13,16 +13,14 @@ build:
         -t {{image_name}}:{{ image_tag }} \
         .
 
+# inspect the git-revision of the image tagged with latest
+inspect_latest:
+    @docker pull -q {{ image_name }}:latest > /dev/null
+    @docker inspect --format '{{{{ index .Config.Labels "git-revision" }}' {{ image_name }}:latest
+
 # deploy the image
 deploy space="dev" tag="latest":
-    #!/bin/sh
-
-    if [ "{{ tag }}" = "latest" ]; then
-      docker pull {{ image_name }}:latest
-      TAG=$(docker inspect --format '{{{{ index .Config.Labels "git-revision" }}' {{ image_name }}:latest)
-    fi
-
-    echo "execute necessary commands to deploy {{ image_name }} to {{ space }}".
+    echo "execute necessary commands to deploy {{ image_name }}:$(([ {{ tag }} = "latest" ] && just inspect_latest || echo {{ tag }}) to {{ space }}".
 
 # build and deploy to all stages
 yolo: build (deploy "dev") (deploy "staging") (deploy "prod")
