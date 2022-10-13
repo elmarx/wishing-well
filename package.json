@@ -18,7 +18,7 @@
     "express-promise-router": "^4.1.1",
     "fp-ts": "^2.12.3",
     "io-ts": "^2.2.19",
-    "io-ts-types": "^0.5.18",
+    "io-ts-types": "^0.5.19",
     "monocle-ts": "^2.3.13",
     "newtype-ts": "^0.3.5",
     "pino": "^8.6.1",
