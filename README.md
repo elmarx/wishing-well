@@ -12,6 +12,10 @@ A best-practice example for an Express-NodeJS Microservices, which can be used a
 
 Also, it encourages a functional style outside of handlers (i.e. were feasible) with the help of [fp-ts](https://gcanti.github.io/fp-ts/). So having some idea of functional programming helps.
 
+## Sponsors <img src="https://sweap.io/assets/styleguide/sweap-logo-standard-onlight-rgb.svg" alt="sweap.io" width="180" valign="middle" style="float: right;" />
+
+Sponsored and used by [sweap.io](https://sweap.io).
+
 ## Features
 
 - TypeScript, Prettier, Jest, Nodemon
