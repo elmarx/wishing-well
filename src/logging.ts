@@ -15,6 +15,8 @@ const logPretty = pipe(
 
 export const context = new AsyncLocalStorage<{ logger: Logger }>();
 export const httpLogger = pinoHttp({
+  // disable logging in tests
+  enabled: !process.env["JEST_WORKER_ID"],
   genReqId: (req) => req.headers["x-request-id"] ?? randomUUID(),
   quietReqLogger: true, // do not log request/response in child-loggers
   formatters: {
