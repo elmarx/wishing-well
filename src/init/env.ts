@@ -7,6 +7,8 @@ export const Env = t.exact(
   t.type({
     SPACE: withFallback(Space, "dev"),
     PORT: withFallback(t.number, 8080),
+    GIT_REVISION: withFallback(t.string, "unknown"),
+
     DEFAULT_NAME: withFallback(t.string, "World"),
   }),
 );

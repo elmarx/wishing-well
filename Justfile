@@ -19,6 +19,7 @@ build:
       --export-cache type=registry,ref={{image_name}}:buildcache \
       --import-cache type=registry,ref={{image_name}}:buildcache \
       --opt label:git-revision={{git_revision}} \
+      --opt build-arg:GIT_REVISION={{ git_revision }} \
       --local context=. \
       --local dockerfile=.
 

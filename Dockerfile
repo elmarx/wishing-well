@@ -25,6 +25,7 @@ RUN tsc -p tsconfig.dist.json
 
 # final image
 FROM node:18-alpine
+ARG GIT_REVISION
 
 ENV NODE_ENV=production
 USER node
@@ -32,4 +33,6 @@ WORKDIR /usr/local/wishing-well
 
 COPY --from=dependencies /usr/src/wishing-well/node_modules node_modules
 COPY --from=builder /usr/src/wishing-well/dist dist
+
+ENV GIT_REVISION=$GIT_REVISION
 CMD node -r source-map-support/register dist/index.js
