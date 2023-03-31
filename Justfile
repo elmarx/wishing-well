@@ -22,16 +22,6 @@ build:
       --local context=. \
       --local dockerfile=.
 
-# run docker build
-build_docker:
-    docker buildx build \
-        --push \
-        --pull \
-        --label git-revision={{git_revision}} \
-        -t {{image_name}} \
-        -t {{image_name}}:{{ image_tag }} \
-        .
-
 # inspect the git-revision of the image tagged with latest
 inspect_latest:
     @docker pull -q {{ image_name }}:latest > /dev/null
