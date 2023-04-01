@@ -19,7 +19,7 @@ async function main(): Promise<void> {
   app.use(json());
   app.use(urlencoded({ extended: true }));
   app.use("/hello-world", helloHandler);
-  app.use("/", (_req, res) => res.redirect("/hello-world", 307));
+  app.use("/", (_req, res) => res.redirect("/hello-world"));
 
   app.use(errorMiddleware);
   app.listen(config.port, (): void => {
