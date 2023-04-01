@@ -1,6 +1,6 @@
 import { initHelloHandler } from "./helloHandler";
 import { createRequest, createResponse } from "node-mocks-http";
-import { BadRequestError } from "../../errors";
+import { InputDecodingFailedError } from "../../errors/input";
 
 describe("helloHandler", () => {
   const subject = initHelloHandler("jest");
@@ -60,7 +60,8 @@ describe("helloHandler", () => {
       const nextArg = await new Promise((r) =>
         subject(sampleReq, sampleRes, r),
       );
-      expect(nextArg).toBeInstanceOf(BadRequestError);
+      expect(nextArg).toBeInstanceOf(InputDecodingFailedError);
+      expect(nextArg).toHaveProperty("statusCode", 422);
     });
   });
 });

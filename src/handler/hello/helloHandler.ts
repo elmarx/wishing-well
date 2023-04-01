@@ -3,7 +3,7 @@ import PromiseRouter from "express-promise-router";
 import { HelloBodyParams } from "./codecs";
 import * as E from "fp-ts/Either";
 import logger from "../../logging";
-import { BadRequestError } from "../../errors";
+import { InputDecodingFailedError } from "../../errors/input";
 
 export function initHelloHandler(defaultName: string) {
   const r = PromiseRouter();
@@ -21,8 +21,10 @@ export function initHelloHandler(defaultName: string) {
 
     // check if the input is valid
     if (E.isLeft(body)) {
-      logger.info("Got invalid request, returning BadRequest");
-      throw new BadRequestError(body);
+      logger.info("Got invalid request, returning error");
+      // instead of throwing, we could also use
+      // `return next(…)`
+      throw new InputDecodingFailedError(body);
     }
 
     res.json({ msg: `Hello ${body.right.name}` });
