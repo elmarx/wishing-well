@@ -5,6 +5,7 @@ import { initConfig } from "./init/config";
 import logger from "./logging";
 import { unwrap } from "./utils/unwrap";
 import { initBailoutHandler } from "./handler/bailout";
+import { initJson404Handler } from "./errors/json404";
 
 async function main(): Promise<void> {
   const app: Application = express();
@@ -22,6 +23,7 @@ async function main(): Promise<void> {
   app.use("/", (_req, res) => res.redirect("/hello-world"));
 
   app.use(errorMiddleware);
+  app.use(initJson404Handler());
   app.listen(config.port, (): void => {
     logger.info(`Server started on port ${config.port}`);
   });
