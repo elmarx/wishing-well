@@ -7,6 +7,8 @@ import { unwrap } from "./utils/unwrap";
 import { initBailoutHandler } from "./handler/bailout";
 import { initJson404Handler } from "./errors/json404";
 
+// suppressing for now, typically, there is async initialization code
+// eslint-disable-next-line @typescript-eslint/require-await
 async function main(): Promise<void> {
   const app: Application = express();
 

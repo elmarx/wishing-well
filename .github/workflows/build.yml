@@ -29,6 +29,9 @@ jobs:
       - name: test if all files have been formatted with prettier
         run: npx prettier -c src/**/*.ts
 
+      - name: linting/static code analysis
+        run: npx eslint src
+
       - name: run tests
         run: npx jest
 

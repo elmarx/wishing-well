@@ -10,13 +10,27 @@ export function initHelloHandler(defaultName: string) {
 
   r.get(
     "/",
-    (req: Request<{}, unknown, unknown, { name?: string }>, res: Response) => {
+    (
+      req: Request<unknown, unknown, unknown, { name?: string }>,
+      res: Response,
+    ) => {
       const name = req.query.name ?? defaultName;
       res.end(`Hello ${name}`);
     },
   );
 
-  r.post("/", (req: Request<{}, unknown, unknown>, res: Response) => {
+  r.get(
+    "/:name",
+    (
+      req: Request<{ name: string }, unknown, unknown, unknown>,
+      res: Response,
+    ) => {
+      const name = req.params.name;
+      res.end(`Hello ${name}`);
+    },
+  );
+
+  r.post("/", (req: Request<unknown, unknown, unknown>, res: Response) => {
     const body = HelloBodyParams.decode(req.body);
 
     // check if the input is valid
