@@ -4,6 +4,9 @@
   "description": "Best Practice Microservice Sample",
   "main": "dist/index.js",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "check-updates": "npx --yes npm-check-updates",
     "dev": "nodemon src/index.ts",
@@ -28,10 +31,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.3.0",
+    "@tsconfig/node20": "^20.1.4",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.12.12",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "jest": "^29.5.0",
