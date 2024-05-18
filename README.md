@@ -71,7 +71,7 @@ commands into [Justfile](./Justfile) recipes which can be executed by CI/CD and 
 but of course it does not know everything. Maybe in the future some practices turn out to be not a good idea, maybe to work with
 legacy code it's necessary to bend the rules/ideas presented here, maybe you just don't like them.
 
-Feel free to pick the peaces you like and change what you don't like.
+Feel free to pick the pieces you like and change what you don't like.
 
 
 ## Environment variables
