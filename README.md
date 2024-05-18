@@ -6,11 +6,11 @@
 > 
 > *Parkway Drive, Wishing wells*
 
-A best-practice example for an Express-NodeJS Microservices, which can be used as a basis for new services.          
+A best-practice example for an Express-NodeJS microservices that can be used as a foundation for new services.          
 
 *Wishing-well* relies heavily on [io-ts](https://gcanti.github.io/io-ts/) for environment variables and input validation.
 
-Also, it encourages a functional style outside of handlers (i.e. were feasible) with the help of [fp-ts](https://gcanti.github.io/fp-ts/). So having some idea of functional programming helps.
+It also encourages a functional style outside of handlers (i.e., where feasible) with the help of [fp-ts](https://gcanti.github.io/fp-ts/). So having some idea of functional programming helps.
 
 ## Sponsors <img src="https://sweap.io/assets/styleguide/sweap-logo-standard-onlight-rgb.svg" alt="sweap.io" width="180" valign="middle" style="float: right;" />
 
@@ -22,15 +22,15 @@ Sponsored and used by [sweap.io](https://sweap.io).
 - logging via Pino with [request context](https://blog.logrocket.com/logging-with-pino-and-asynclocalstorage-in-node-js/)
 - input validation with [io-ts](https://gcanti.github.io/io-ts/)
 - embraces async/await in handlers via [express-promise-router](https://www.npmjs.com/package/express-promise-router)
-- config via environment variables
-- flexible, custom, semantic error-handling leveraging [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)  
-- fast build of slim container-images (leveraging [multi-stage builds](https://docs.docker.com/build/building/multi-stage/))
-- good testability due to (manual) dependency injection 
-- pragmatic approach to functional programming, cherry-picking the good parts without being too academic
+- configuration via environment variables
+- flexible, custom, semantic error handling using [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)  
+- fast build of slim container images (leveraging [multi-stage builds](https://docs.docker.com/build/building/multi-stage/))
+- good testability through (manual) dependency injection 
+- pragmatic approach to functional programming, picking the good parts without being too academic
       
 ## Required software
 
-- [direnv](https://direnv.net/) to set environment-variables for development (especially `PATH` to execute binaries from installed npm packages)
+- [direnv](https://direnv.net/) to set environment variables for development (especially `PATH` to execute binaries from installed npm packages)
   - [Direnv integration for IntelliJ](https://plugins.jetbrains.com/plugin/15285-direnv-integration) to use environment set via *direnv* for IntelliJ Run
 - NodeJS > 18 for [Error-cause-property](https://node.green/#ES2022-features-Error-cause-property)
 - [just](https://just.systems/man/en/) to execute commands
@@ -71,7 +71,7 @@ commands into [Justfile](./Justfile) recipes which can be executed by CI/CD and 
 but of course it does not know everything. Maybe in the future some practices turn out to be not a good idea, maybe to work with
 legacy code it's necessary to bend the rules/ideas presented here, maybe you just don't like them.
 
-Feel free to pick the peaces you like and change what you don't like.
+Feel free to pick the pieces you like and change what you don't like.
 
 
 ## Environment variables
