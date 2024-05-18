@@ -18,7 +18,7 @@ Sponsored and used by [sweap.io](https://sweap.io).
 
 ## Features
 
-- TypeScript, Prettier, Jest, Nodemon
+- TypeScript, eslint, Prettier, Jest, Nodemon
 - logging via Pino with [request context](https://blog.logrocket.com/logging-with-pino-and-asynclocalstorage-in-node-js/)
 - input validation with [io-ts](https://gcanti.github.io/io-ts/)
 - embraces async/await in handlers via [express-promise-router](https://www.npmjs.com/package/express-promise-router)
@@ -59,8 +59,10 @@ commands into [Justfile](./Justfile) recipes which can be executed by CI/CD and 
 ## Usage
 
 - `tsc` to check files
+- `eslint src` to lint files
 - `nodemon src/index.ts` to start the service and reload on changes (could also be `npm run dev`).
 - `jest` (or `jest -w`) to run tests
+- `just ci` to execute typical ci tasks in one go
 - `just build` to build the docker image
 
 # Philosophy
