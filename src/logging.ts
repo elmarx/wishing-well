@@ -8,8 +8,7 @@ import { pipe } from "fp-ts/function";
 
 // if LOG_PRETTY is set to a truthy value, use pino-pretty as log transport
 const logPretty = pipe(
-  process.env["LOG_PRETTY"],
-  LogPretty.decode,
+  LogPretty.decode(process.env["LOG_PRETTY"]),
   getOrElse(() => false),
 );
 
@@ -43,7 +42,7 @@ const logger: Logger = new Proxy(httpLogger.logger, {
       context.getStore()?.logger || target,
       property,
       receiver,
-    );
+    ) as Logger;
   },
 });
 

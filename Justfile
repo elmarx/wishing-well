@@ -8,6 +8,7 @@ ci:
     npm ci
     npm run tsc
     npm run prettier
+    npm run eslint
     # currently no tests…
     npm run test
 
