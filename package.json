@@ -16,8 +16,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@effect/schema": "^0.67.5",
     "axios": "^1.6.8",
     "cors": "^2.8.5",
+    "effect": "^3.1.5",
     "express": "^4.19.2",
     "express-promise-router": "^4.1.1",
     "fp-ts": "^2.16.5",
