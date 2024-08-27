@@ -21,8 +21,8 @@ export const BooleanFromString: BooleanFromStringC = new t.Type<
         s === "true" || s === "1" || s.toLocaleLowerCase() == "yes"
           ? t.success(true)
           : s === "false" || s === "0" || s.toLocaleLowerCase() == "no"
-          ? t.success(false)
-          : t.failure(u, c),
+            ? t.success(false)
+            : t.failure(u, c),
       ),
     ),
   String,
