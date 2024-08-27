@@ -4,12 +4,12 @@
  * (it's inspired by rust's unwrap: sometimes the best error-handling is just to throw and crash, e.g. during startup)
  * @param ma
  */
-import { Either, isRight } from "fp-ts/Either";
+import { Either, isRight, toError } from "fp-ts/Either";
 
-export function unwrap<E, A>(ma: Either<E, A>): A {
+export function unwrap<E extends Error, A>(ma: Either<E, A>): A {
   if (isRight(ma)) {
     return ma.right;
   }
 
-  throw ma.left;
+  throw toError(ma.left);
 }
