@@ -32,7 +32,7 @@ Sponsored and used by [sweap.io](https://sweap.io).
 
 - [direnv](https://direnv.net/) to set environment variables for development (especially `PATH` to execute binaries from installed npm packages)
   - [Direnv integration for IntelliJ](https://plugins.jetbrains.com/plugin/15285-direnv-integration) to use environment set via *direnv* for IntelliJ Run
-- NodeJS > 18 for [Error-cause-property](https://node.green/#ES2022-features-Error-cause-property)
+- [FNM](https://github.com/Schniz/fnm) recommended to install appropriate node-version (according to `.node-version`)
 - [just](https://just.systems/man/en/) to execute commands
 - [jq](https://stedolan.github.io/jq/) to setup environment variables etc.,
 - [gopass](https://www.gopass.pw/) to set secrets for development
@@ -44,8 +44,8 @@ Sponsored and used by [sweap.io](https://sweap.io).
 The following strings need to be replaced/customized. Find them via [`git grep`](https://git-scm.com/docs/git-grep).
 
 - `docker-repository`
-- `wishing-well`     
-- `my-company`
+- `wishing-well`
+- `WishingWell`
 
 ### IntelliJ run TypeScript File
 
