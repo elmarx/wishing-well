@@ -1,6 +1,6 @@
 {
-  // defaults for node20, see https://www.npmjs.com/package/@tsconfig/node20 for applied settings
-  "extends": "@tsconfig/node20/tsconfig.json",
+  // defaults for node22, see https://www.npmjs.com/package/@tsconfig/node22 for applied settings
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
