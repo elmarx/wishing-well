@@ -9,11 +9,12 @@ export const errorMiddleware: ErrorRequestHandler = (
   _next: NextFunction,
 ) => {
   if (isWishingWellError(error)) {
-    return res
+    res
       .status(error.statusCode)
       .json({ message: error.message, errorCode: error.errorCode });
+    return;
   }
 
   logger.error(error, "Unknown error occurred");
-  return res.status(500).json({ error, message: "Unknown error" });
+  res.status(500).json({ error, message: "Unknown error" });
 };

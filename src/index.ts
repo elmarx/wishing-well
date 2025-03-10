@@ -17,7 +17,9 @@ async function main(): Promise<void> {
   const { loggingMiddleware, errorMiddleware, helloHandler } = wire(config);
 
   app.use(initBailoutHandler());
-  app.get("/health", (_req, res) => res.status(204).json({}));
+  app.get("/health", (_req, res) => {
+    res.status(200).json({});
+  });
   app.use(loggingMiddleware);
   app.use(cors());
   app.use(json());

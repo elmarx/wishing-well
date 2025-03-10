@@ -1,12 +1,11 @@
-import { Request, Response } from "express";
-import PromiseRouter from "express-promise-router";
+import { Request, Response, Router } from "express";
 import { HelloBodyParams } from "./codecs";
 import * as E from "fp-ts/Either";
 import logger from "../../logging";
 import { InputDecodingFailedError } from "../../errors/input";
 
 export function initHelloHandler(defaultName: string) {
-  const r = PromiseRouter();
+  const r = Router();
 
   r.get(
     "/",

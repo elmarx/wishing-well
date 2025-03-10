@@ -21,7 +21,6 @@ Sponsored and used by [sweap.io](https://sweap.io).
 - TypeScript, eslint, Prettier, Jest, Nodemon
 - logging via Pino with [request context](https://blog.logrocket.com/logging-with-pino-and-asynclocalstorage-in-node-js/)
 - input validation with [io-ts](https://gcanti.github.io/io-ts/)
-- embraces async/await in handlers via [express-promise-router](https://www.npmjs.com/package/express-promise-router)
 - configuration via environment variables
 - flexible, custom, semantic error handling using [cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)  
 - fast build of slim container images (leveraging [multi-stage builds](https://docs.docker.com/build/building/multi-stage/))

@@ -6,24 +6,24 @@ describe("helloHandler", () => {
   const subject = initHelloHandler("jest");
 
   describe("GET endpoint", () => {
-    test("without query parameter", () => {
+    test("without query parameter", async () => {
       const sampleReq = createRequest({ url: "/" });
       const sampleRes = createResponse();
       const next = jest.fn();
 
-      subject(sampleReq, sampleRes, next);
+      await subject(sampleReq, sampleRes, next);
 
       expect(next).not.toBeCalled();
       expect(sampleRes._getStatusCode()).toStrictEqual(200);
       expect(sampleRes._getData()).toStrictEqual("Hello jest");
     });
 
-    test("with query parameter", () => {
+    test("with query parameter", async () => {
       const sampleReq = createRequest({ url: "/", query: { name: "test" } });
       const sampleRes = createResponse();
       const next = jest.fn();
 
-      subject(sampleReq, sampleRes, next);
+      await subject(sampleReq, sampleRes, next);
 
       expect(next).not.toBeCalled();
       expect(sampleRes._getStatusCode()).toStrictEqual(200);
@@ -32,7 +32,7 @@ describe("helloHandler", () => {
   });
 
   describe("POST endpoint", () => {
-    test("with correct body parameter", () => {
+    test("with correct body parameter", async () => {
       const sampleReq = createRequest({
         url: "/",
         method: "POST",
@@ -41,7 +41,7 @@ describe("helloHandler", () => {
       const sampleRes = createResponse();
       const next = jest.fn();
 
-      subject(sampleReq, sampleRes, next);
+      await subject(sampleReq, sampleRes, next);
 
       expect(next).not.toBeCalled();
       expect(sampleRes._getStatusCode()).toStrictEqual(200);

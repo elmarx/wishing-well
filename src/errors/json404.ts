@@ -8,9 +8,9 @@ import { Handler } from "express";
 export function initJson404Handler(disableHtml404Handler = true): Handler {
   return (req, res, next) => {
     if (disableHtml404Handler || req.header("application/json")) {
-      return res.status(404).json({ error: "not found" });
+      res.status(404).json({ error: "not found" });
     } else {
-      return next();
+      next();
     }
   };
 }
